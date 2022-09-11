@@ -7,8 +7,8 @@ function counter() {
 	document.getElementById('timer').textContent = countSec;	
   if (countSec <= 0){    
     clearTimeout(timer);    
-    alert('Вы победили в конкурсе!');  }
-  else {
+    alert('Вы победили в конкурсе!');  
+  } else {
     timer = setTimeout(counter, 1000);
   }
 }
