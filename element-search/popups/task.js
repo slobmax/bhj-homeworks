@@ -6,13 +6,17 @@ function inactiveModal(modalWindow) {
 	document.getElementById(modalWindow).className = 'modal'; 
 }
 
-activeModal('modal_main');
-
-document.getElementsByClassName('modal__close_times').item(0).onclick = () => inactiveModal('modal_main');
-
-document.getElementsByClassName('modal__close_times').item(1).onclick = () => inactiveModal('modal_success');
-
-document.getElementsByClassName('show-success').item(0).onclick = () => {
-	activeModal('modal_success');
-	inactiveModal('modal_main');    
+for(i=0; i<document.querySelectorAll('.modal__close').length; i++) {
+	document.querySelectorAll('.modal__close').item(i).onclick = function() {
+		this.closest('.modal').className = 'modal';
+	}
 }
+
+for(i=0; i<document.querySelectorAll('.btn').length; i++) {
+	document.querySelectorAll('.btn').item(i).onclick = function() {
+		activeModal('modal_success');		
+		inactiveModal('modal_main');
+	}
+}
+
+activeModal('modal_main');
