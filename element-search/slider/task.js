@@ -1,34 +1,21 @@
-let right = document.querySelectorAll('.slider__arrow').item(1);
+let arraySliders = Array.from(document.querySelectorAll('.slider__item'));
 let left = document.querySelectorAll('.slider__arrow').item(0);
-
-let counter = 0;
-
-right.onclick = () => {
-	
-	counter++;							
-
-	if(counter > 4) {            
-		counter = 0; 
-		document.querySelectorAll('.slider__item').item(counter + document.querySelectorAll('.slider__item').length - 1).className = 'slider__item';  
-		document.querySelectorAll('.slider__item').item(counter).className = 'slider__item slider__item_active';                    
-	} else {					
-		document.querySelectorAll('.slider__item').item(counter).className = 'slider__item slider__item_active';
-		document.querySelectorAll('.slider__item').item(counter - 1).className = 'slider__item'; 
-	}		    
-}
-
-counter = document.querySelectorAll('.slider__item').length - 1;
+let right = document.querySelectorAll('.slider__arrow').item(1);
 
 left.onclick = () => {
-		
-	counter--;							
+	let leftPosition = arraySliders.findIndex((item) => item.className === 'slider__item slider__item_active');
+	
+	leftPosition <= 0 ? (arraySliders[leftPosition].className = 'slider__item') && 
+	(arraySliders[leftPosition + arraySliders.length - 1].className = 'slider__item slider__item_active') : 	
+	(arraySliders[leftPosition].className = 'slider__item') &&
+	(arraySliders[leftPosition - 1].className = 'slider__item slider__item_active');	
+}
 
-	if(counter < 0) {            
-		counter = document.querySelectorAll('.slider__item').length - 1; 
-		document.querySelectorAll('.slider__item').item(counter - document.querySelectorAll('.slider__item').length + 1).className = 'slider__item';  
-		document.querySelectorAll('.slider__item').item(counter).className = 'slider__item slider__item_active';                    
-	} else {					
-		document.querySelectorAll('.slider__item').item(counter).className = 'slider__item slider__item_active';
-		document.querySelectorAll('.slider__item').item(counter + 1).className = 'slider__item'; 
-	}		   
-}    
+right.onclick = () => {
+	let rightPosition = arraySliders.findIndex((item) => item.className === 'slider__item slider__item_active');
+	
+	rightPosition >= arraySliders.length - 1 ? (arraySliders[rightPosition].className = 'slider__item') && 
+	(arraySliders[rightPosition - arraySliders.length + 1].className = 'slider__item slider__item_active') : 	
+	(arraySliders[rightPosition].className = 'slider__item') &&
+	(arraySliders[rightPosition + 1].className = 'slider__item slider__item_active');	
+}
