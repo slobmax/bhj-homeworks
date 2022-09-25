@@ -2,7 +2,7 @@ function getElement(index) {
 	return document.querySelectorAll('.menu__link').item(index);
 }
 
-for(i = 0; i < document.querySelectorAll('.menu__link').length; i++) {
+for(let i = 0; i < document.querySelectorAll('.menu__link').length; i++) {
 	let currentElement = getElement(i);
 	
 	currentElement.onclick = () => { 	
