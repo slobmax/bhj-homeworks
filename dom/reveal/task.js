@@ -1,10 +1,10 @@
-let arr = Array.from(document.querySelectorAll('.reveal'));
+let arrOfReveal = Array.from(document.querySelectorAll('.reveal'));
 
-arr.forEach((visibleElement) => {
+arrOfReveal.forEach((visibleElement) => {
 	document.addEventListener('scroll', () => {	
 		let {top, bottom} = visibleElement.getBoundingClientRect();
 		top < window.innerHeight && bottom > 0 ? 
-		visibleElement.className = 'reveal reveal_active' : 
-		visibleElement.className = 'reveal';
+		visibleElement.classList.add('reveal_active') : 
+		visibleElement.classList.remove('reveal_active');
 	})
-})
+});
