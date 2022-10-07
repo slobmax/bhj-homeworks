@@ -1,4 +1,5 @@
 const chatWidget = document.querySelector('.chat-widget');
+
 const arrOfMessages = [
 	'Добрый день, мы ещё не проснулись. Позвоните через 10 лет', 
 	'Вы не купили ни одного товара, чтобы так с нами разговаривать', 
@@ -22,7 +23,7 @@ chatWidget.addEventListener('click', () => chatWidget.classList.add('chat-widget
 const chatArea = document.getElementById('chat-widget__input');
 
 chatArea.addEventListener('keyup', event => {    
-	const messages = document.querySelector( '.chat-widget__messages' );
+	const messages = document.getElementById('chat-widget__messages');
 	
 	if(event.key === 'Enter' && chatArea.value.length > 0) {
 		
