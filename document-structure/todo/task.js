@@ -5,9 +5,9 @@ const button = document.getElementById('tasks__add');
 function addDiv() {
 
 	const div = `<div class="task">
-			<div class="task__title">${text.value}</div>
-			<a href="#" class="task__remove">&times;</a>
-	</div>`;
+					<div class="task__title">${text.value}</div>
+					<a href="#" class="task__remove">&times;</a>
+				</div>`;
 
 	list.insertAdjacentHTML('beforeEnd', div); 
 
