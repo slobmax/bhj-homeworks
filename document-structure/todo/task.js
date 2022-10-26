@@ -9,16 +9,15 @@ function addDiv() {
 					<a href="#" class="task__remove">&times;</a>
 				</div>`;
 
-	list.insertAdjacentHTML('beforeEnd', div); 
+	list.insertAdjacentHTML('afterBegin', div); 
 
-	text.value = '';  
+	text.value = '';
 
-	const remove = Array.from(document.querySelectorAll('.task__remove'));
+	const remove = list.querySelector('.task__remove');
 
-	remove.forEach(el => el.addEventListener('click', (e) => {
-			el.closest('.task').remove();
-			e.preventDefault();
-	}))    
+	remove.addEventListener('click', (e) => {
+		remove.closest('.task').remove();		
+	})  
 };
 
 button.addEventListener('click', (e) => {
