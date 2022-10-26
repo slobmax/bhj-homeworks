@@ -21,17 +21,12 @@ function addDiv() {
 	}))    
 };
 
-text.addEventListener('keyup', (e) => {
-    
-	if(e.key === 'Enter' && text.value) {
-			addDiv();            
-	} 
-});
-
 button.addEventListener('click', (e) => {
     
-	if(text.value) {        
-			addDiv();       
+	if(text.value.trim().length > 0) {        
+		addDiv();       
+	} else {
+		text.value = '';
 	}
 	
 	e.preventDefault();
