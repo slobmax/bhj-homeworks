@@ -26,7 +26,5 @@ button.addEventListener('click', (e) => {
 		addDiv();       
 	} else {
 		text.value = '';
-	}
-	
-	e.preventDefault();
+	}	
 });
