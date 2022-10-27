@@ -27,4 +27,6 @@ button.addEventListener('click', (e) => {
 	} else {
 		text.value = '';
 	}	
+
+	e.preventDefault();
 });
