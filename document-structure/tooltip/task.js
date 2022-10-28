@@ -5,8 +5,10 @@ div.classList.add('tooltip');
 arr.forEach(el => el.addEventListener('click', (event) => {
 	const {top, left} = el.getBoundingClientRect();    
 	el.insertAdjacentElement('afterEnd', div);    
-	div.setAttribute('style', `top: ${top + 20}px; left: ${left}px`);
-	div.classList.toggle('tooltip_active');
-	div.textContent = el.title;
+	div.setAttribute('style', `top: ${top + 20}px; left: ${left}px`);	
+	el.title === div.innerText ?
+	div.classList.toggle('tooltip_active') :		
+	div.classList.add('tooltip_active');	
+	div.innerText = el.title;
 	event.preventDefault();    
 }));
